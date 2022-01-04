@@ -106,8 +106,18 @@
                                     {{ __('Data Donasi Barang') }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('donasiUangList') }}">
+                                    {{ __('Data Donasi Uang') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('penyaluranBarangList') }}">
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Penyaluran Barang') }}
+                    </a>
                 </li>
 
                

@@ -97,7 +97,23 @@ class DonasiBarangController extends Controller
      */
     public function update(Request $request, donasi_barang $donasi_barang)
     {
-        //
+        $data = validator($request->all(), [
+            'nama_barang' => '',
+            'jumlah' => ''  ,
+            'image' => '',  
+            'txtDonatur' => ''  
+        ])->validate();
+        $donasi_barang->nama_barang = $data['nama_barang'];
+        $donasi_barang->jumlah = $data['jumlah'];
+        if ($request->image){
+            unlink(public_path('/uploadedimages/').$donasi_barang->photos);
+            $imageName=$data['nama_barang'].'.'.$request->image->getClientOriginalExtension();
+            $donasi_barang->photos=$imageName;
+            $request->image->move(public_path('/uploadedimages'), $imageName);
+        }
+        $donasi_barang->donatur_id = $data['txtDonatur'];
+        $donasi_barang->save();
+        return redirect(route('donasiBarangList'));
     }
 
     /**
@@ -109,6 +125,7 @@ class DonasiBarangController extends Controller
     public function destroy(donasi_barang $donasi_barang)
     {
         $donasi_barang->delete();
+        unlink(public_path('/uploadedimages/').$donasi_barang->photos);
         return redirect(route('donasiBarangList'));
     }
 }

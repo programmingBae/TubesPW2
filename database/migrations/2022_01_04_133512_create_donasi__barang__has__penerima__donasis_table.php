@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenerimaDonasiTable extends Migration
+class CreateDonasiBarangHasPenerimaDonasisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePenerimaDonasiTable extends Migration
      */
     public function up()
     {
-        Schema::create('penerima_donasi', function (Blueprint $table) {
+        Schema::create('donasi__barang__has__penerima__donasis', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreatePenerimaDonasiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penerima_donasi');
+        Schema::dropIfExists('donasi__barang__has__penerima__donasis');
     }
 }
