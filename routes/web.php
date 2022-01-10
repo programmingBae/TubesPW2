@@ -49,6 +49,14 @@ Route::get('/donasi_uang/edit/{donasi_uang}', 'DonasiUangController@edit')->name
 Route::post('/donasi_uang/edit/{donasi_uang}', 'DonasiUangController@update')->name('donasiUangUpdate');
 Route::get('/donasi_uang/delete/{donasi_uang}', 'DonasiUangController@destroy')->name('donasiUangDelete');
 Route::post('/donasi_uang/create', 'DonasiUangController@store')->name('donasiUangSave');
+
+Route::get('/penyaluran_uang', 'PenyaluranUangController@index')->name('penyaluranUangList');
+Route::get('/penyaluran_uang/create', 'PenyaluranUangController@create')->name('penyaluranUangForm');
+Route::post('/penyaluran_uang/create', 'PenyaluranUangController@store')->name('penyaluranUangSave');
+Route::get('/penyaluran_uang/delete/{penyaluranUang}', 'PenyaluranUangController@destroy')->name('penyaluranUangDelete');
+Route::get('/penyaluran_uang/edit/{penyaluranUang}', 'PenyaluranUangController@edit')->name('penyaluranUangEdit');
+Route::post('/penyaluran_uang/edit/{penyaluranUang}', 'PenyaluranUangController@update')->name('penyaluranUangUpdate');
+
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

@@ -119,6 +119,11 @@
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Penyaluran Barang') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('penyaluranUangList') }}">
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Penyaluran Uang') }}
+                    </a>
+                </li>
 
                
                
